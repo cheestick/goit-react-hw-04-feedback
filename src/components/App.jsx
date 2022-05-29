@@ -1,5 +1,4 @@
 export const App = () => {
-  const a = null;
   return (
     <div
       style={{
