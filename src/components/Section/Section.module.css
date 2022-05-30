@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+  min-width: 500px;
+}
+
+.title {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0.25em 2em 0.15em 0.35em;
+  border-radius: 0.1em 1em 1em 0.1em;
+  background-color: rgb(21, 197, 233);
+  color: aliceblue;
+}

@@ -9,21 +9,31 @@ class App extends Component {
     bad: 0,
   };
 
+  updateStats = type => {
+    this.setState(prevState => ({
+      [type]: prevState[type] + 1,
+    }));
+  };
+
   render() {
     return (
       <div
         style={{
-          height: '100vh',
+          minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
+          gap: 40,
           fontSize: 40,
           color: '#010101',
         }}
       >
         <Section title="Please leave feedback">
-          <FeedbackOptions options={{ ...this.state }} onLeaveFeedback={1} />
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.updateStats}
+          />
         </Section>
         <Section title="Statistics">Stats</Section>
       </div>
