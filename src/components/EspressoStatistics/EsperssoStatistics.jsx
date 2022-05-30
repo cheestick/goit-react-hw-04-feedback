@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Section from 'components/Section';
 import FeedbackOptions from 'components/FeedbackOptions';
 import Statistics from 'components/Statistics/Statistics';
+import Notification from 'components/Notification';
 import s from './EspressoStatistics.module.css';
 
 class EsperssoStatistics extends Component {
@@ -29,6 +30,7 @@ class EsperssoStatistics extends Component {
   render() {
     const { options, onLeaveFeedback } = this.props;
     const { good, bad, neutral } = options;
+    const totalFeedbackCount = this.countTotalFeedback();
     return (
       <section className={s.container}>
         <Section title="Please leave feedback">
@@ -39,13 +41,17 @@ class EsperssoStatistics extends Component {
         </Section>
 
         <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
+          {totalFeedbackCount === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={totalFeedbackCount}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          )}
         </Section>
       </section>
     );
