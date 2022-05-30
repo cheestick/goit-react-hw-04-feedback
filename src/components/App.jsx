@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Section from './Section';
 import FeedbackOptions from './FeedbackOptions';
+import Statistics from './Statistics/Statistics';
 
 class App extends Component {
   state = {
@@ -16,6 +17,7 @@ class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
     return (
       <div
         style={{
@@ -25,7 +27,7 @@ class App extends Component {
           justifyContent: 'center',
           alignItems: 'center',
           gap: 40,
-          fontSize: 40,
+          fontSize: 34,
           color: '#010101',
         }}
       >
@@ -35,7 +37,15 @@ class App extends Component {
             onLeaveFeedback={this.updateStats}
           />
         </Section>
-        <Section title="Statistics">Stats</Section>
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={0}
+            positivePercentage={0}
+          />
+        </Section>
       </div>
     );
   }
