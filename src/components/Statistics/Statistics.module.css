@@ -1,0 +1,23 @@
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+  font-size: 0.65em;
+  font-weight: 300;
+  line-height: 1;
+  background-color: rgb(177, 242, 255);
+  border-radius: 8px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.statRow {
+  display: flex;
+  gap: 10px;
+  min-width: 30%;
+}
+
+.statValue {
+  font-weight: 400;
+}
