@@ -3,13 +3,8 @@ import PropTypes from 'prop-types';
 import s from './FeedbackOptions.module.css';
 
 class FeedbackOptions extends Component {
-  onLeaveFeedback = e => {
-    const { name } = e.currentTarget;
-    this.props.onLeaveFeedback(name);
-  };
-
   render() {
-    const { options } = this.props;
+    const { options, onLeaveFeedback } = this.props;
     return (
       <div className={s.wrapper}>
         {options.map(type => (
@@ -17,7 +12,7 @@ class FeedbackOptions extends Component {
             key={type}
             className={s.button}
             name={type}
-            onClick={this.onLeaveFeedback}
+            onClick={() => onLeaveFeedback(type)}
           >
             {type}
           </button>
