@@ -5,12 +5,12 @@ import s from './FeedbackOptions.module.css';
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <div className={s.wrapper}>
-      {options.map((type, i) => (
+      {options.map(type => (
         <button
           key={type}
           className={s.button}
           name={type}
-          onClick={() => onLeaveFeedback[i]()}
+          onClick={() => onLeaveFeedback(type)}
         >
           {type}
         </button>
@@ -21,7 +21,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onLeaveFeedback: PropTypes.arrayOf(PropTypes.func).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;
