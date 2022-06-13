@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import s from './Statistics.module.css';
 
-const Statistics = props => {
-  const { good, bad, neutral, total, positivePercentage } = props;
+const Statistics = ({ good, bad, neutral, total, positivePercentage }) => {
   return (
     <ul className={s.stats}>
       <li className={s.statRow}>
